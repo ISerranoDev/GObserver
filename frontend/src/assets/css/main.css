@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Press+Start+2P&display=swap');
+
+*{
+    --pico-font-family: "Chakra Petch", sans-serif !important;
+    --pico-font-size: 95% !important;
+}
+
+body {
+    min-height: 100vh;
+    transition: padding-right 0.5s;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: linear-gradient(90deg, rgb(62, 24, 69) 0%, rgba(52,21,59,1) 25%, rgb(62, 24, 69) 50%, rgba(52,21,59,1) 75%, rgb(62, 24, 69) 100%);
+    background-size: 200%;
+    animation: moveBackground 15s linear infinite;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+article{
+    border: 2px solid #2b3443;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 100%;
+    }
+}
+
+input{
+    box-shadow: inset 2px 2px 18px 0px rgba(0,0,0,0.75);
+}
+
+button{
+    --pico-background-color: #3d1845 !important;
+    --pico-color: #d47de4 !important;
+}
+
+button:hover{
+    --pico-color: #cfacd5 !important;
+}
+
+.btn-primary{
+    background-color: #3d1845 !important;
+    color: #d47de4 !important;
+    border: 1px solid rgba(212, 125, 228, 0.4) !important;
+}
+
+.btn-primary:hover{
+    --pico-color: #cfacd5 !important;
+    border: 1px solid rgba(212, 125, 228, 0.7) !important;
+}
+
+.nav-button.active{
+    filter: brightness(150%);
+}
+
+/* Estilos para btn-secondary */
+.btn-secondary {
+    background-color: #6c4f7d !important; /* Un color secundario similar */
+    color: #f0b8e0 !important; /* Un color de texto complementario */
+    border: 1px solid rgba(240, 184, 224, 0.4) !important; /* Un borde suave */
+}
+
+.btn-secondary:hover {
+    --pico-color: #e1a4c7 !important; /* Color de cambio para hover */
+    border: 1px solid rgba(240, 184, 224, 0.7) !important; /* Borde con mayor opacidad en hover */
+}
+
+/* Estilos para btn-tertiary */
+.btn-tertiary {
+    background-color: #8c63a3 !important; /* Color terciario */
+    color: #d4a2d8 !important; /* Un color de texto más suave */
+    border: 1px solid rgba(212, 162, 216, 0.4) !important; /* Borde sutil */
+}
+
+.btn-tertiary:hover {
+    --pico-color: #d4b6e2 !important; /* Color de cambio para hover */
+    border: 1px solid rgba(212, 162, 216, 0.7) !important; /* Borde más visible en hover */
+}
+
+
+.btn-danger{
+    background-color: #451818;
+    color: #e47d7d;
+    border: 1px solid rgba(228, 125, 125, 0.4) !important;
+}
+
+.btn-danger:hover{
+    --pico-color: #d5acac !important;
+    border: 1px solid rgba(228, 125, 125, 0.7) !important;
+}
+
+#host-container{
+    grid-template-columns: repeat(auto-fill, minmax(300px, 3fr)) !important;
+}
+
+.text-end{
+    text-align: end;
+}
+
+
+.btn-action {
+    opacity: 0;
+    margin-left: 3px;
+    padding: 5px 10px 3px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-sm{
+    margin-left: 10px;
+    padding: 5px 10px 3px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+
+.host-article:hover .btn-action {
+    transition: all 0.3s;
+    opacity: 1;
+}
+
+.pb-0{
+    padding-bottom: 0;
+}
+
+/* ASIDE */
+
+aside{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    background-color: #35153c;
+    border-left: 2px solid #2b3443;
+    box-shadow: -5px 0px 17px 0px rgba(0,0,0,0.75);
+
+}
+
+aside nav{
+    width: 250px;
+}
+
+aside .close-btn {
+    text-decoration: none;
+    position: absolute !important;
+    top: 0;
+    right: 20px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+aside.show{
+    transition: width 0.5s;
+    width: 310px;
+    padding: 60px 30px;
+}
+
+aside form{
+    font-size: 14px;
+}
+
+aside form input{
+    font-size: 16px;
+    padding: 7px 10px 5px 10px !important;
+    height: auto !important;
+}
+
+aside form [type="submit"]{
+    font-size: 16px !important;
+}
+
+/* iziToast */
+
+.iziToast{
+    background-color: rgb(48, 13, 55) !important;
+    border: 1px solid rgba(212, 125, 228, 0.4) !important;
+}
+
+.iziToast-title, .iziToast-message{
+    color: #d47de4 !important;
+}
+
+.iziToast-close{
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfgCR4OIQIPSao6AAAAwElEQVRIx72VUQ6EIAwFmz2XB+AConhjzqTJ7JeGKhLYlyx/BGdoBVpjIpMJNjgIZDKTkQHYmYfwmR2AfAqGFBcO2QjXZCd24bEggvd1KBx+xlwoDpYmvnBUUy68DYXD77ESr8WDtYqvxRex7a8oHP4Wo1Mkt5I68Mc+qYqv1h5OsZmZsQ3gj/02h6cO/KEYx29hu3R+VTTwz6D3TymIP1E8RvEiiVdZfEzicxYLiljSxKIqlnW5seitTW6uYnv/Aqh4whX3mEUrAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE2LTA5LTMwVDE0OjMzOjAyKzAyOjAwl6RMVgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNi0wOS0zMFQxNDozMzowMiswMjowMOb59OoAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC) no-repeat 50% 50% !important;
+    background-size: 8px !important;
+}
+
+.swal2-title{
+    font-size: 25px;
+}
+
+.swal2-html-container{
+    font-size: 17px !important;
+}
+
+div:where(.swal2-icon){
+    font-size: 0.7rem !important;
+}
+
+/* Estilos para los artículos de disco mejorados */
+.disk-article {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.disk-info {
+    margin-bottom: 1rem;
+}
+
+.disk-info h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.disk-info p {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.disk-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.disk-metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.disk-metric span {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.disk-metric strong {
+    font-size: 1rem;
+}
+
+.disk-usage {
+    margin-top: 0.5rem;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+}
+
+.progress-container progress {
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+
+.disk-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.disk-ratio {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
+/* Estilos para el análisis de disparidad */
+#disk-analysis {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.high-disparity {
+    color: var(--danger-color);
+    font-weight: 500;
+}
+
+.medium-disparity {
+    color: var(--warning-color);
+    font-weight: 500;
+}
+
+.low-disparity {
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+.disparity-explanation {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.disparity-explanation h4 {
+    margin-top: 0;
+}
+
+.disparity-explanation ul {
+    padding-left: 1.5rem;
+}
+
+/* Estilos para la tarjeta de detalles de disco */
+.disk-details-card {
+    background-color: rgba(94, 53, 177, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.disk-details-card h4 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.disk-details-card p {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+}
+
+/* Procesos */
+
+/* Estilos para el nombre de cada proceso */
+.process-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los detalles de cada proceso */
+.process-details {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Estilos para cada uno de los detalles dentro de .process-details */
+.process-details span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Clases para diferentes niveles de uso de CPU */
+.low-usage {
+    color: #4caf50; /* Verde para bajo uso de CPU */
+}
+
+.medium-usage {
+    color: #ff9800; /* Naranja para uso medio de CPU */
+}
+
+.high-usage {
+    color: #f44336; /* Rojo para alto uso de CPU */
+}
+
+
+/* CHARTS */
+.chart{
+    width: 100%;
+}

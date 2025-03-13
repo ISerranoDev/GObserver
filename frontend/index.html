@@ -1,0 +1,158 @@
+<!DOCTYPE html >
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>GObserver</title>
+</head>
+<body>
+    <header class="container text-end pb-0">
+        <nav>
+            <ul>
+                <li>
+                    <button class="btn-sm btn-primary nav-button active" onclick="changeTab(this,SYSTEM_TAB)"><i class="si si-chart-line"></i> Información del sistema</button>
+                </li>
+                <li>
+                    <button class="btn-sm btn-primary nav-button " onclick="changeTab(this,PROCESSES_TAB)"><i class="si si-bezier"></i> Procesos</button>
+                </li>
+                <li>
+                    <button class="btn-sm btn-primary nav-button " onclick="changeTab(this,DISKS_TAB)"><i class="si si-table"></i> Discos</button>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <button class="btn-sm btn-secondary" onclick="toggleAside()"><i class="si si-sliders"></i> Opciones</button>
+                </li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="container">
+        <section id="system-overview-section" class="system-overview tab">
+
+            <div class="grid">
+                <div>
+                    <article style="height: calc(100% - var(--pico-block-spacing-vertical))">
+                        <h1>Información del Sistema</h1>
+                        <p>
+                            <strong>Hostname</strong>: <span id="hostname">Cargando...</span>
+                        </p>
+
+                        <p>
+                            <strong>Sistema Operativo</strong>: <span id="platform">Cargando...</span>
+                        </p>
+
+                        <p>
+                            <strong>CPU</strong>: <span id="cpu-model">Cargando...</span><br>
+                            <strong>Núcleos</strong>: <span id="core-count">Cargando...</span><br>
+                            <strong>Hilos</strong>: <span id="thread-count">Cargando...</span>
+                        </p>
+
+                        <p>
+                            <strong>Versión de Kernel</strong>: <span id="kernel">Cargando...</span>
+                        </p>
+
+                        <p>
+                            <strong>Actividad</strong>: <span id="uptime">Cargando...</span>
+                        </p>
+                    </article>
+
+                </div>
+                <div>
+                    <article>
+
+                        <h3>Uso de CPU</h3>
+
+                        <progress id="cpu-bar" value="0" max="100"></progress>
+                        <p id="cpu-usage">0%</p>
+                    </article>
+
+                    <article>
+                        <h3>Uso de Memoria</h3>
+                        <progress id="memory-bar" value="0" max="100"></progress>
+                        <p id="memory-usage">0%</p>
+                    </article>
+
+                    <article>
+                        <h3>Uso de Disco</h3>
+                        <progress id="disk-bar" value="0" max="100"></progress>
+                        <p id="disk-usage">0%</p>
+                    </article>
+
+                </div>
+            </div>
+
+            <article>
+                <div class="chart"><canvas id="cpu-chart" ></canvas></div>
+            </article>
+
+            <article>
+                <div class="chart"><canvas id="memory-chart" ></canvas></div>
+            </article>
+        </section>
+
+        <section class="tab" id="processes-overview-section" style="display: none;">
+            <article>
+                <div class="grid">
+                    <div>
+                        <h2>Procesos Principales</h2>
+                    </div>
+                    <div class="grid" >
+                        <div class="text-end"  >
+                            <label style="padding-top: 10px">Nº de Procesos</label>
+                        </div>
+                        <div>
+                            <input type="number" id="processes-limit" value="" step="1" min="0" onchange="processesLimit = parseInt(this.value)">
+                        </div>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Proceso</th>
+                        <th scope="col" class="cursor-pointer" onclick="processesOrderField = 'cpu';">CPU</th>
+                        <th scope="col" class="cursor-pointer" onclick="processesOrderField = 'ram';">Memoria</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody id="process-container">
+
+                    </tbody>
+                </table>
+            </article>
+
+        </section>
+
+        <section class="tab" id="disks-overview-section" style="display: none;">
+            <h2>Información de Discos</h2>
+            <div id="disk-container">
+                <article class="placeholder">Cargando información de discos...</article>
+            </div>
+        </section>
+    </main>
+
+    <aside>
+
+        <a href="javascript:void(0)" class="close-btn" onclick="hideAside()">&times;</a>
+
+        <div>
+            <h2>Configuración</h2>
+            <div>
+                <label>Tiempo de recarga (milisegundos)</label>
+                <input type="number" id="refresh-time" min="500" onchange="loadInterval = this.value; reinstanceIntervals();">
+            </div>
+
+
+        </div>
+
+    </aside>
+
+    <script src="./src/main.js" type="module"></script>
+    <script src="./src/assets/js/charts.js" type="module"></script>
+    <script src="./src/assets/js/config.js" type="module"></script>
+</body>
+</html>
